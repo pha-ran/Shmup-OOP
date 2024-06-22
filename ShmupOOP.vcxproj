@@ -33,6 +33,7 @@
     <ClInclude Include="Delegate.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="InputManager.h" />
+    <ClInclude Include="List.h" />
     <ClInclude Include="OutputManager.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="TimeManager.h" />
