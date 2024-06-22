@@ -101,8 +101,3 @@ OutputManager::OutputManager(void) noexcept
 	ClearBuffer();
 	ClearUIBuffer();
 }
-
-OutputManager::~OutputManager(void) noexcept
-{
-	;
-}

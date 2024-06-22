@@ -20,7 +20,6 @@ public:
 
 private:
 	OutputManager(void) noexcept;
-	~OutputManager(void) noexcept;
 
 private:
 	void* _console;

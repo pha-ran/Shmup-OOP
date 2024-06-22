@@ -14,7 +14,6 @@ public:
 
 private:
 	InputManager(void) noexcept;
-	~InputManager(void) noexcept;
 
 private:
 	bool _flag[KEY_MAX];

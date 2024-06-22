@@ -39,8 +39,3 @@ InputManager::InputManager(void) noexcept
 	for (int index = 0; index < KEY_MAX; ++index)
 		_flag[index] = false;
 }
-
-InputManager::~InputManager(void) noexcept
-{
-	;
-}
