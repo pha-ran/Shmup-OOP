@@ -29,5 +29,6 @@ private:
 	unsigned long _deltaPerSecond;
 	signed long _error;
 
+private:
 	static TimeManager _timeManager;
 };

@@ -1,8 +1,9 @@
 #include "TimeManager.h"
+#include "OutputManager.h"
 #include <windows.h>
 #include <stdio.h>
 
-#pragma comment (lib, "winmm.lib")
+#pragma comment(lib, "winmm.lib")
 
 TimeManager TimeManager::_timeManager;
 
@@ -33,8 +34,6 @@ void TimeManager::NextFrame(void) noexcept
 	if (GetAsyncKeyState(VK_ESCAPE))
 		Sleep(234);
 
-	wprintf_s(L"delta : %d\n", _delta);
-
 	_previous = _current;
 	_current = timeGetTime();
 
@@ -45,7 +44,9 @@ void TimeManager::NextFrame(void) noexcept
 		else
 			_error += _deltaPerSecond - SECOND;
 
-		wprintf_s(L"FPS %d (%d, %d)\n", _framePerSecond, _deltaPerSecond, _error);
+		WCHAR buffer[32];
+		swprintf_s(buffer, L"FPS %d (%d, %d)   ", _framePerSecond, _deltaPerSecond, _error);
+		OutputManager::GetInstance().DrawUI(OutputManager::CONSOLE_WIDTH - 24, buffer);
 
 		_framePerSecond = 0;
 		_deltaPerSecond = 0;
@@ -53,14 +54,13 @@ void TimeManager::NextFrame(void) noexcept
 		_previousFrame = _previousSecond;
 	}
 
-	++_framePerSecond;
-
 	DWORD frameTime = _current - _previousFrame;
+
+	++_framePerSecond;
+	_previousFrame += MILLISECONDS_PER_FRAME;
 
 	if (frameTime < MILLISECONDS_PER_FRAME)
 		Sleep(MILLISECONDS_PER_FRAME - frameTime);
-	
-	_previousFrame += MILLISECONDS_PER_FRAME;
 
 	_delta = _current - _previous;
 	_deltaPerSecond += _delta;

@@ -1,5 +1,6 @@
 #include "Engine.h"
 #include "TimeManager.h"
+#include "OutputManager.h"
 
 Engine Engine::_engine;
 
@@ -10,10 +11,11 @@ Engine& Engine::GetInstance(void) noexcept
 
 int Engine::Run(void) noexcept
 {
-	TimeManager::GetInstance().Reset();
-
 	for (;;)
 	{
+		OutputManager::GetInstance().ClearBuffer();
+		OutputManager::GetInstance().PrintBuffer();
+
 		TimeManager::GetInstance().NextFrame();
 	}
 
