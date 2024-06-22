@@ -10,17 +10,23 @@
     <Filter Include="Engine\Manager">
       <UniqueIdentifier>{bcb8f830-1b28-4374-889f-6fd84966606a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Contents\Scene">
+      <UniqueIdentifier>{986a834e-c46f-485f-83c8-b7ac23489f43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Core">
+      <UniqueIdentifier>{2293ab46-7439-41bf-b4af-983421110122}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Base">
+      <UniqueIdentifier>{08ac0802-d9dd-45bc-808f-dd2349ae8798}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\DataStructure">
+      <UniqueIdentifier>{ff7a20ca-404a-4f2f-bf8c-c07b6778ce65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Delegate">
+      <UniqueIdentifier>{19a18303-5a88-42c8-9158-bcf80392468b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp">
-      <Filter>Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="Delegate.cpp">
-      <Filter>Contents</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine.cpp">
-      <Filter>Engine</Filter>
-    </ClCompile>
     <ClCompile Include="TimeManager.cpp">
       <Filter>Engine\Manager</Filter>
     </ClCompile>
@@ -30,14 +36,26 @@
     <ClCompile Include="InputManager.cpp">
       <Filter>Engine\Manager</Filter>
     </ClCompile>
+    <ClCompile Include="TitleScene.cpp">
+      <Filter>Contents\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>Engine\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine.cpp">
+      <Filter>Engine\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Engine\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Delegate.cpp">
+      <Filter>Contents\Delegate</Filter>
+    </ClCompile>
+    <ClCompile Include="FileManager.cpp">
+      <Filter>Engine\Manager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Delegate.h">
-      <Filter>Contents</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine.h">
-      <Filter>Engine</Filter>
-    </ClInclude>
     <ClInclude Include="TimeManager.h">
       <Filter>Engine\Manager</Filter>
     </ClInclude>
@@ -45,6 +63,27 @@
       <Filter>Engine\Manager</Filter>
     </ClInclude>
     <ClInclude Include="InputManager.h">
+      <Filter>Engine\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleScene.h">
+      <Filter>Contents\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>Engine\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseScene.h">
+      <Filter>Engine\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine.h">
+      <Filter>Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="List.h">
+      <Filter>Engine\DataStructure</Filter>
+    </ClInclude>
+    <ClInclude Include="Delegate.h">
+      <Filter>Contents\Delegate</Filter>
+    </ClInclude>
+    <ClInclude Include="FileManager.h">
       <Filter>Engine\Manager</Filter>
     </ClInclude>
   </ItemGroup>
