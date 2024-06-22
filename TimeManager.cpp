@@ -31,9 +31,6 @@ void TimeManager::Reset(void) noexcept
 
 void TimeManager::NextFrame(void) noexcept
 {
-	if (GetAsyncKeyState(VK_ESCAPE))
-		Sleep(234);
-
 	_previous = _current;
 	_current = timeGetTime();
 
