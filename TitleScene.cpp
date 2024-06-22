@@ -2,11 +2,12 @@
 #include "InputManager.h"
 #include "OutputManager.h"
 #include "SceneManager.h"
+#include "LoadScene.h"
 
 void TitleScene::Update(void) noexcept
 {
 	if (InputManager::GetInstance().GetKeyDown(VK_RETURN))
-		SceneManager::GetInstance().LoadScene<TitleScene>();
+		SceneManager::GetInstance().LoadScene<LoadScene>();
 }
 
 void TitleScene::Render(void) noexcept
