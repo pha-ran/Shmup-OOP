@@ -1,5 +1,4 @@
 #include "InputManager.h"
-#include <windows.h>
 
 #pragma warning(disable:26495)
 

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "BaseScene.h"
+#include <new>
 
 class SceneManager
 {
@@ -11,20 +12,17 @@ private:
 	class SceneChanger
 	{
 	public:
-		virtual void Change(void) noexcept = 0;
+		virtual void Change(BaseScene*& scene) noexcept = 0;
 	};
 
 	template <typename T>
 	class SceneType : public SceneChanger
 	{
 	public:
-		void Change(void) noexcept override
+		void Change(BaseScene*& scene) noexcept override
 		{
-			delete _scene;
-			_scene = new T;
-
-			_changer = nullptr;
-			delete this;
+			delete scene;
+			scene = new(std::nothrow) T;
 		}
 	};
 
@@ -33,7 +31,7 @@ public:
 	void LoadScene(void) noexcept
 	{
 		delete _changer;
-		_changer = new SceneType<T>;
+		_changer = new(std::nothrow) SceneType<T>;
 	}
 
 public:

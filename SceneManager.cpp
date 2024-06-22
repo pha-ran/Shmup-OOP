@@ -11,7 +11,11 @@ SceneManager& SceneManager::GetInstance(void) noexcept
 void SceneManager::Update(void) noexcept
 {
 	if (_changer)
-		_changer->Change();
+	{
+		_changer->Change(_scene);
+		delete _changer;
+		_changer = nullptr;
+	}
 
 	_scene->Update();
 }

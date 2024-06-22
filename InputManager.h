@@ -1,9 +1,11 @@
 #pragma once
 
+#include <windows.h>
+
 class InputManager
 {
 public:
-	static constexpr int KEY_MAX = 0x100;
+	static constexpr int KEY_MAX = 0xFF;
 
 public:
 	static InputManager& GetInstance(void) noexcept;
@@ -16,7 +18,7 @@ private:
 	InputManager(void) noexcept;
 
 private:
-	bool _flag[KEY_MAX];
+	bool _flag[KEY_MAX + 1];
 
 private:
 	static InputManager _inputManager;
