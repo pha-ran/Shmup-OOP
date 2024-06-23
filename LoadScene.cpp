@@ -1,4 +1,5 @@
 #include "LoadScene.h"
+#include "ObjectManager.h"
 #include "OutputManager.h"
 #include "SceneManager.h"
 
