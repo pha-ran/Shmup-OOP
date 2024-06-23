@@ -39,7 +39,7 @@ public:
 	void Render(void) noexcept;
 
 private:
-	SceneManager() noexcept;
+	SceneManager(void) noexcept;
 
 private:
 	BaseScene* _scene;

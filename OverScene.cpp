@@ -17,12 +17,7 @@ void OverScene::Render(void) noexcept
 	OutputManager::GetInstance().DrawString(54, 16, L"press enter");
 }
 
-OverScene::OverScene() noexcept
+OverScene::OverScene(void) noexcept
 {
 	GameManager::GetInstance()._stageInfo._current = 0;
-}
-
-OverScene::~OverScene() noexcept
-{
-	;
 }

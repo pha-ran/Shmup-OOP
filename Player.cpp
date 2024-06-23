@@ -39,60 +39,50 @@ void Player::OnCollision(BaseObject* other) noexcept
 
 void Player::UpdateMove(void) noexcept
 {
-	if (_moveDelta < _deltaPerMove)
+	if (InputManager::GetInstance().GetKey(VK_ESCAPE))
+		Sleep(123);
+
+	_moveDelta += TimeManager::GetInstance().GetDeltaTime();
+
+	while (_moveDelta >= _deltaPerMove)
 	{
-		_moveDelta += TimeManager::GetInstance().GetDeltaTime();
-		return;
+		_moveDelta -= _deltaPerMove;
+
+		if (InputManager::GetInstance().GetKey(VK_UP))
+			_y -= 1;
+
+		if (InputManager::GetInstance().GetKey(VK_DOWN))
+			_y += 1;
+
+		if (InputManager::GetInstance().GetKey(VK_LEFT))
+			_x -= 1;
+
+		if (InputManager::GetInstance().GetKey(VK_RIGHT))
+			_x += 1;
+
+		if (_x < 0)
+			_x = 0;
+
+		if (_y < 0)
+			_y = 0;
+
+		if (_x >= OutputManager::CONSOLE_WIDTH)
+			_x = OutputManager::CONSOLE_WIDTH - 1;
+
+		if (_y >= OutputManager::CONSOLE_HEIGHT)
+			_y = OutputManager::CONSOLE_HEIGHT - 1;
 	}
-
-	if (InputManager::GetInstance().GetKey(VK_UP))
-	{
-		_y -= 1;
-		_moveDelta = 0;
-	}
-
-	if (InputManager::GetInstance().GetKey(VK_DOWN))
-	{
-		_y += 1;
-		_moveDelta = 0;
-	}
-
-	if (InputManager::GetInstance().GetKey(VK_LEFT))
-	{
-		_x -= 1;
-		_moveDelta = 0;
-	}
-
-	if (InputManager::GetInstance().GetKey(VK_RIGHT))
-	{
-		_x += 1;
-		_moveDelta = 0;
-	}
-
-	if (_x < 0)
-		_x = 0;
-
-	if (_y < 0)
-		_y = 0;
-
-	if (_x >= OutputManager::CONSOLE_WIDTH)
-		_x = OutputManager::CONSOLE_WIDTH - 1;
-
-	if (_y >= OutputManager::CONSOLE_HEIGHT)
-		_y = OutputManager::CONSOLE_HEIGHT - 1;
 }
 
 void Player::UpdateFire(void) noexcept
 {
-	if (_fireDelta < _deltaPerFire)
-	{
-		_fireDelta += TimeManager::GetInstance().GetDeltaTime();
-		return;
-	}
+	_fireDelta += TimeManager::GetInstance().GetDeltaTime();
 
-	if (InputManager::GetInstance().GetKey(VK_SPACE))
+	while (_fireDelta >= _deltaPerFire)
 	{
-		ObjectManager::GetInstance().Add(new Bullet(GameManager::Type::PLAYER_BULLET, _x, _y - 1, 40));
-		_fireDelta = 0;
+		_fireDelta -= _deltaPerFire;
+
+		if (InputManager::GetInstance().GetKey(VK_SPACE))
+			ObjectManager::GetInstance().Add(new Bullet(GameManager::Type::PLAYER_BULLET, _x, _y - 1, 40));
 	}
 }

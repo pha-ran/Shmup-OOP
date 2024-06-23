@@ -13,6 +13,9 @@ void Enemy::Update(void) noexcept
 
 void Enemy::Render(void) noexcept
 {
+	if (_destroy)
+		return;
+
 	OutputManager::GetInstance().DrawSprite(_x, _y, _sprite);
 }
 
@@ -30,43 +33,42 @@ void Enemy::OnCollision(BaseObject* other) noexcept
 
 void Enemy::UpdateMove(void) noexcept
 {
-	if (_moveDelta < _deltaPerMove)
+	_moveDelta += TimeManager::GetInstance().GetDeltaTime();
+
+	while (_moveDelta >= _deltaPerMove)
 	{
-		_moveDelta += TimeManager::GetInstance().GetDeltaTime();
-		return;
+		_moveDelta -= _deltaPerMove;
+
+		if (_moveIndex >= _moveCount)
+			_moveIndex = 0;
+
+		_x += _nx[_moveIndex];
+		_y += _ny[_moveIndex];
+
+		_moveIndex += 1;
+
+		if (_x < 0)
+			_x = 0;
+
+		if (_y < 0)
+			_y = 0;
+
+		if (_x >= OutputManager::CONSOLE_WIDTH)
+			_x = OutputManager::CONSOLE_WIDTH - 1;
+
+		if (_y >= OutputManager::CONSOLE_HEIGHT)
+			_y = OutputManager::CONSOLE_HEIGHT - 1;
 	}
-
-	if (_moveIndex >= _moveCount)
-		_moveIndex = 0;
-
-	_x += _nx[_moveIndex];
-	_y += _ny[_moveIndex];
-
-	_moveDelta = 0;
-	_moveIndex += 1;
-
-	if (_x < 0)
-		_x = 0;
-
-	if (_y < 0)
-		_y = 0;
-
-	if (_x >= OutputManager::CONSOLE_WIDTH)
-		_x = OutputManager::CONSOLE_WIDTH - 1;
-
-	if (_y >= OutputManager::CONSOLE_HEIGHT)
-		_y = OutputManager::CONSOLE_HEIGHT - 1;
 }
 
 void Enemy::UpdateFire(void) noexcept
 {
-	if (_fireDelta < _deltaPerFire)
+	_fireDelta += TimeManager::GetInstance().GetDeltaTime();
+
+	while (_fireDelta >= _deltaPerFire)
 	{
-		_fireDelta += TimeManager::GetInstance().GetDeltaTime();
-		return;
+		_fireDelta -= _deltaPerFire;
+
+		ObjectManager::GetInstance().Add(new Bullet(GameManager::Type::ENEMY_BULLET, _x, _y + 1, 60));
 	}
-
-	_fireDelta = 0;
-
-	ObjectManager::GetInstance().Add(new Bullet(GameManager::Type::ENEMY_BULLET, _x, _y + 1, 60));
 }

@@ -9,6 +9,5 @@ public:
 	void Render(void) noexcept override;
 
 public:
-	ClearScene() noexcept;
-	~ClearScene() noexcept;
+	ClearScene(void) noexcept;
 };

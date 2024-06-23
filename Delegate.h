@@ -3,5 +3,5 @@
 class Delegate
 {
 public:
-	void Initialize(void);
+	void Initialize(void) noexcept;
 };

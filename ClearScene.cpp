@@ -27,11 +27,7 @@ void ClearScene::Render(void) noexcept
 	OutputManager::GetInstance().DrawString(54, 16, L"press enter");
 }
 
-ClearScene::ClearScene() noexcept
+ClearScene::ClearScene(void) noexcept
 {
 	GameManager::GetInstance()._stageInfo._current += 1;
-}
-
-ClearScene::~ClearScene() noexcept
-{
 }

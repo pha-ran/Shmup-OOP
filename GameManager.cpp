@@ -113,7 +113,7 @@ void GameManager::InitEnemyInfo(void) noexcept
     int count;
     int index;
     wchar_t tokenBuffer[FileManager::TOKEN_MAX];
-    wchar_t fileName[PLAYER_INFO_MAX][FileManager::TOKEN_MAX]{};
+    wchar_t fileName[ENEMY_INFO_MAX][FileManager::TOKEN_MAX]{};
 
     FileManager::GetInstance().GetFirstInteger(ENEMY_CONFIG_FILE, &count);
 
