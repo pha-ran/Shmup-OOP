@@ -63,7 +63,12 @@ void ObjectManager::Clear(void) noexcept
 	}
 }
 
-ObjectManager::~ObjectManager() noexcept
+ObjectManager::ObjectManager(void) noexcept
+{
+	;
+}
+
+ObjectManager::~ObjectManager(void) noexcept
 {
 	Clear();
 }

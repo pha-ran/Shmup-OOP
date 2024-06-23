@@ -25,6 +25,12 @@
     <Filter Include="Contents\Delegate">
       <UniqueIdentifier>{19a18303-5a88-42c8-9158-bcf80392468b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Contents\Object">
+      <UniqueIdentifier>{1919b952-f1e4-4824-b3df-f5db04c10145}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Manager">
+      <UniqueIdentifier>{6fa3cf3e-0f34-4217-98e5-8cd2c7a9febe}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TimeManager.cpp">
@@ -59,6 +65,9 @@
     </ClCompile>
     <ClCompile Include="ObjectManager.cpp">
       <Filter>Engine\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="GameManager.cpp">
+      <Filter>Contents\Manager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -100,6 +109,9 @@
     </ClInclude>
     <ClInclude Include="ObjectManager.h">
       <Filter>Engine\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="GameManager.h">
+      <Filter>Contents\Manager</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

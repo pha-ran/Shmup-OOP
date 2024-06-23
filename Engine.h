@@ -9,5 +9,8 @@ public:
 	int Run(void) noexcept;
 
 private:
+	Engine(void) noexcept;
+
+private:
 	static Engine _engine;
 };

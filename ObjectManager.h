@@ -15,7 +15,8 @@ public:
 	void Clear(void) noexcept;
 
 private:
-	~ObjectManager() noexcept;
+	ObjectManager(void) noexcept;
+	~ObjectManager(void) noexcept;
 
 private:
 	List<BaseObject*> _list;

@@ -21,3 +21,8 @@ int Engine::Run(void) noexcept
 
 	return 0;
 }
+
+Engine::Engine(void) noexcept
+{
+	;
+}
