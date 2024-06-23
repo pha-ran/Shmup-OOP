@@ -1,6 +1,8 @@
 #include "GameManager.h"
 #include <stdio.h>
 
+#pragma warning(disable:26495)
+
 GameManager GameManager::_gameManager;
 
 GameManager& GameManager::GetInstance(void) noexcept
@@ -21,7 +23,9 @@ void GameManager::InitStageInfo(void) noexcept
     wchar_t tokenBuffer[FileManager::TOKEN_MAX];
 
     FileManager::GetInstance().GetFirstInteger(STAGE_CONFIG_FILE, &count);
+    
     _stageInfo._count = count;
+    _stageInfo._current = 0;
 
     for (int index = 0; index < count; ++index)
     {
