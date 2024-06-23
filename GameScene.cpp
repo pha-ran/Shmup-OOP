@@ -5,6 +5,7 @@
 #include "TimeManager.h"
 #include "GameManager.h"
 #include "ClearScene.h"
+#include "OverScene.h"
 #include <stdio.h>
 
 void GameScene::Update(void) noexcept
@@ -12,7 +13,7 @@ void GameScene::Update(void) noexcept
 	ObjectManager::GetInstance().Update();
 
 	if (!GameManager::GetInstance()._playerAlive)
-		__debugbreak();
+		SceneManager::GetInstance().LoadScene<OverScene>();
 	else if (GameManager::GetInstance()._enemyAlive == 0)
 		SceneManager::GetInstance().LoadScene<ClearScene>();
 }

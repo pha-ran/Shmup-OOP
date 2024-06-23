@@ -84,6 +84,9 @@
     <ClCompile Include="ClearScene.cpp">
       <Filter>Contents\Scene</Filter>
     </ClCompile>
+    <ClCompile Include="OverScene.cpp">
+      <Filter>Contents\Scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TimeManager.h">
@@ -141,6 +144,9 @@
       <Filter>Contents\Object</Filter>
     </ClInclude>
     <ClInclude Include="ClearScene.h">
+      <Filter>Contents\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="OverScene.h">
       <Filter>Contents\Scene</Filter>
     </ClInclude>
   </ItemGroup>

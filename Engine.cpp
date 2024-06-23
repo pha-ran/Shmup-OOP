@@ -17,12 +17,21 @@ int Engine::Run(void) noexcept
 		SceneManager::GetInstance().Render();
 
 		TimeManager::GetInstance().NextFrame();
+
+		if (_exit)
+			break;
 	}
 
 	return 0;
 }
 
+void Engine::Exit(void) noexcept
+{
+	_exit = true;
+}
+
 Engine::Engine(void) noexcept
+	: _exit(false)
 {
 	;
 }
