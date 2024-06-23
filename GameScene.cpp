@@ -4,6 +4,7 @@
 #include "SceneManager.h"
 #include "TimeManager.h"
 #include "GameManager.h"
+#include "ClearScene.h"
 #include <stdio.h>
 
 void GameScene::Update(void) noexcept
@@ -12,8 +13,8 @@ void GameScene::Update(void) noexcept
 
 	if (!GameManager::GetInstance()._playerAlive)
 		__debugbreak();
-	else if (!GameManager::GetInstance()._enemyAlive)
-		__debugbreak();
+	else if (GameManager::GetInstance()._enemyAlive == 0)
+		SceneManager::GetInstance().LoadScene<ClearScene>();
 }
 
 void GameScene::Render(void) noexcept

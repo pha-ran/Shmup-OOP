@@ -81,6 +81,9 @@
     <ClCompile Include="Enemy.cpp">
       <Filter>Contents\Object</Filter>
     </ClCompile>
+    <ClCompile Include="ClearScene.cpp">
+      <Filter>Contents\Scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TimeManager.h">
@@ -136,6 +139,9 @@
     </ClInclude>
     <ClInclude Include="Enemy.h">
       <Filter>Contents\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="ClearScene.h">
+      <Filter>Contents\Scene</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

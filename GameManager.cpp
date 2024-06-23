@@ -29,11 +29,13 @@ Player& GameManager::GetPlayer(wchar_t sprite, char x, char y)
 
         return _playerInfo._player[index];
     }
+
+    __debugbreak();
 }
 
 Enemy& GameManager::GetEnemy(wchar_t sprite, char x, char y)
 {
-    for (int index = 0; index < _playerInfo._count; ++index)
+    for (int index = 0; index < _enemyInfo._count; ++index)
     {
         if (sprite != _enemyInfo._enemy[index]._sprite)
             continue;
@@ -43,6 +45,8 @@ Enemy& GameManager::GetEnemy(wchar_t sprite, char x, char y)
 
         return _enemyInfo._enemy[index];
     }
+
+    __debugbreak();
 }
 
 void GameManager::InitStageInfo(void) noexcept
