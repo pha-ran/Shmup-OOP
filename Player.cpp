@@ -31,7 +31,10 @@ void Player::OnCollision(BaseObject* other) noexcept
 		_hp -= 1;
 
 	if (_hp <= 0)
+	{
+		GameManager::GetInstance()._playerAlive = false;
 		Destroy();
+	}
 }
 
 void Player::UpdateMove(void) noexcept

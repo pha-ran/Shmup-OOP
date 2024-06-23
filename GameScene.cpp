@@ -1,6 +1,7 @@
 #include "GameScene.h"
 #include "ObjectManager.h"
 #include "OutputManager.h"
+#include "SceneManager.h"
 #include "TimeManager.h"
 #include "GameManager.h"
 #include <stdio.h>
@@ -8,6 +9,11 @@
 void GameScene::Update(void) noexcept
 {
 	ObjectManager::GetInstance().Update();
+
+	if (!GameManager::GetInstance()._playerAlive)
+		__debugbreak();
+	else if (!GameManager::GetInstance()._enemyAlive)
+		__debugbreak();
 }
 
 void GameScene::Render(void) noexcept

@@ -21,9 +21,23 @@ void LoadScene::Update(void) noexcept
 	FileManager::GetInstance().GetNextInteger(&x);
 	FileManager::GetInstance().GetNextInteger(&y);
 
-	Player& prefab = GameManager::GetInstance().GetPlayer(buffer[0], x, y);
-	ObjectManager::GetInstance().Add(new Player(prefab));
+	Player& playerPrefab = GameManager::GetInstance().GetPlayer(buffer[0], x, y);
+	ObjectManager::GetInstance().Add(new Player(playerPrefab));
+
+	GameManager::GetInstance()._playerAlive = true;
 	--count;
+
+	for (index = 0; index < count; ++index)
+	{
+		FileManager::GetInstance().GetNextString(buffer);
+		FileManager::GetInstance().GetNextInteger(&x);
+		FileManager::GetInstance().GetNextInteger(&y);
+
+		Enemy& enemyPrefab = GameManager::GetInstance().GetEnemy(buffer[0], x, y);
+		ObjectManager::GetInstance().Add(new Enemy(enemyPrefab));
+	}
+
+	GameManager::GetInstance()._enemyAlive = count;
 
 	SceneManager::GetInstance().LoadScene<GameScene>();
 }

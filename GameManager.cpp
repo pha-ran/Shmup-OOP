@@ -31,6 +31,20 @@ Player& GameManager::GetPlayer(wchar_t sprite, char x, char y)
     }
 }
 
+Enemy& GameManager::GetEnemy(wchar_t sprite, char x, char y)
+{
+    for (int index = 0; index < _playerInfo._count; ++index)
+    {
+        if (sprite != _enemyInfo._enemy[index]._sprite)
+            continue;
+
+        _enemyInfo._enemy[index]._x = x;
+        _enemyInfo._enemy[index]._y = y;
+
+        return _enemyInfo._enemy[index];
+    }
+}
+
 void GameManager::InitStageInfo(void) noexcept
 {
     int count;
@@ -58,6 +72,7 @@ void GameManager::InitPlayerInfo(void) noexcept
     FileManager::GetInstance().GetFirstInteger(PLAYER_CONFIG_FILE, &count);
 
     _playerInfo._count = count;
+    _playerAlive = false;
 
     for (index = 0; index < count; ++index)
     {
@@ -91,7 +106,61 @@ void GameManager::InitPlayerInfo(void) noexcept
 
 void GameManager::InitEnemyInfo(void) noexcept
 {
-    ;
+    int count;
+    int index;
+    wchar_t tokenBuffer[FileManager::TOKEN_MAX];
+    wchar_t fileName[PLAYER_INFO_MAX][FileManager::TOKEN_MAX]{};
+
+    FileManager::GetInstance().GetFirstInteger(ENEMY_CONFIG_FILE, &count);
+
+    _enemyInfo._count = count;
+    _enemyAlive = 0;
+
+    for (index = 0; index < count; ++index)
+    {
+        FileManager::GetInstance().GetNextString(tokenBuffer);
+        swprintf_s(fileName[index], FileManager::TOKEN_MAX, ENEMY_INFO_PATH, tokenBuffer);
+    }
+
+    for (index = 0; index < count; ++index)
+    {
+        int i;
+
+        _enemyInfo._enemy[index]._destroy = false;
+        _enemyInfo._enemy[index]._type = Type::ENEMY;
+
+        FileManager::GetInstance().GetFirstString(fileName[index], tokenBuffer);
+        _enemyInfo._enemy[index]._sprite = tokenBuffer[0];
+
+        FileManager::GetInstance().GetNextInteger(&i);
+        _enemyInfo._enemy[index]._hp = i;
+
+        FileManager::GetInstance().GetNextInteger(&i);
+        _enemyInfo._enemy[index]._deltaPerMove = i;
+
+        FileManager::GetInstance().GetNextInteger(&i);
+        _enemyInfo._enemy[index]._deltaPerFire = i;
+
+        _enemyInfo._enemy[index]._moveDelta = 0;
+        _enemyInfo._enemy[index]._fireDelta = 0;
+
+        wchar_t moveFileName[FileManager::TOKEN_MAX];
+        FileManager::GetInstance().GetNextString(tokenBuffer);
+        swprintf_s(moveFileName, FileManager::TOKEN_MAX, ENEMY_MOVE_PATH, tokenBuffer);
+
+        FileManager::GetInstance().GetFirstInteger(moveFileName, &i);
+        _enemyInfo._enemy[index]._moveCount = i;
+        _enemyInfo._enemy[index]._moveIndex = 0;
+
+        for (int moveIndex = 0; moveIndex < _enemyInfo._enemy[index]._moveCount; ++moveIndex)
+        {
+            FileManager::GetInstance().GetNextInteger(&i);
+            _enemyInfo._enemy[index]._nx[moveIndex] = i;
+
+            FileManager::GetInstance().GetNextInteger(&i);
+            _enemyInfo._enemy[index]._ny[moveIndex] = i;
+        }
+    }
 }
 
 GameManager::GameManager(void) noexcept

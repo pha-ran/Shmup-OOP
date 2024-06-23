@@ -78,6 +78,9 @@
     <ClCompile Include="Bullet.cpp">
       <Filter>Contents\Object</Filter>
     </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Contents\Object</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TimeManager.h">
@@ -129,6 +132,9 @@
       <Filter>Contents\Scene</Filter>
     </ClInclude>
     <ClInclude Include="Bullet.h">
+      <Filter>Contents\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
       <Filter>Contents\Object</Filter>
     </ClInclude>
   </ItemGroup>

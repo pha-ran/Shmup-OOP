@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Delegate.cpp" />
+    <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="FileManager.cpp" />
     <ClCompile Include="GameManager.cpp" />
@@ -40,6 +41,7 @@
     <ClInclude Include="BaseScene.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="Delegate.h" />
+    <ClInclude Include="Enemy.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="FileManager.h" />
     <ClInclude Include="GameManager.h" />
