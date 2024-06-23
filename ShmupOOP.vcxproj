@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Delegate.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="FileManager.cpp" />
@@ -37,6 +38,7 @@
   <ItemGroup>
     <ClInclude Include="BaseObject.h" />
     <ClInclude Include="BaseScene.h" />
+    <ClInclude Include="Bullet.h" />
     <ClInclude Include="Delegate.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="FileManager.h" />

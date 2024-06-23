@@ -75,6 +75,9 @@
     <ClCompile Include="GameScene.cpp">
       <Filter>Contents\Scene</Filter>
     </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>Contents\Object</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TimeManager.h">
@@ -124,6 +127,9 @@
     </ClInclude>
     <ClInclude Include="GameScene.h">
       <Filter>Contents\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>Contents\Object</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

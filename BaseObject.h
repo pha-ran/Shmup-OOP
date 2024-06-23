@@ -1,5 +1,7 @@
 #pragma once
 
+#pragma warning(disable:26495)
+
 class BaseObject
 {
 	friend class ObjectManager;

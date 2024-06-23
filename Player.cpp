@@ -1,8 +1,10 @@
 #include "Player.h"
 #include "InputManager.h"
+#include "ObjectManager.h"
 #include "OutputManager.h"
 #include "TimeManager.h"
 #include "GameManager.h"
+#include "Bullet.h"
 #include <stdio.h>
 
 void Player::Update(void) noexcept
@@ -79,5 +81,15 @@ void Player::UpdateMove(void) noexcept
 
 void Player::UpdateFire(void) noexcept
 {
-	;
+	if (_fireDelta < _deltaPerFire)
+	{
+		_fireDelta += TimeManager::GetInstance().GetDeltaTime();
+		return;
+	}
+
+	if (InputManager::GetInstance().GetKey(VK_SPACE))
+	{
+		ObjectManager::GetInstance().Add(new Bullet(GameManager::Type::PLAYER_BULLET, _x, _y - 1, 40));
+		_fireDelta = 0;
+	}
 }
