@@ -1,6 +1,7 @@
 #pragma once
 
 #include "FileManager.h"
+#include "Player.h"
 
 class GameManager
 {
@@ -18,6 +19,7 @@ public:
 
 public:
 	void Initialize(void) noexcept;
+	Player& GetPlayer(wchar_t sprite, char x, char y);
 
 private:
 	static constexpr const wchar_t* STAGE_CONFIG_FILE = L"Config\\stage.txt";
@@ -42,16 +44,6 @@ public:
 		wchar_t _fileName[STAGE_INFO_MAX][FileManager::TOKEN_MAX];
 	} _stageInfo;
 
-	struct PlayerInfo
-	{
-		char _count;
-	};
-
-	struct EnemyInfo
-	{
-		char _count;
-	};
-
 private:
 	void InitStageInfo(void) noexcept;
 	void InitPlayerInfo(void) noexcept;
@@ -59,7 +51,18 @@ private:
 
 private:
 	GameManager(void) noexcept;
-	~GameManager(void) noexcept;
+
+private:
+	struct PlayerInfo
+	{
+		char _count;
+		Player _player[PLAYER_INFO_MAX];
+	} _playerInfo;
+
+	struct EnemyInfo
+	{
+		char _count;
+	} _enemyInfo;
 
 private:
 	static GameManager _gameManager;

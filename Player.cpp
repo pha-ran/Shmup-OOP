@@ -13,6 +13,9 @@ void Player::Update(void) noexcept
 
 void Player::Render(void) noexcept
 {
+	if (_destroy)
+		return;
+
 	OutputManager::GetInstance().DrawSprite(_x, _y, _sprite);
 
 	wchar_t buffer[16];
@@ -76,4 +79,5 @@ void Player::UpdateMove(void) noexcept
 
 void Player::UpdateFire(void) noexcept
 {
+	;
 }

@@ -16,10 +16,10 @@ private:
 	void UpdateFire(void) noexcept;
 
 private:
-	wchar_t _hp;
 	wchar_t _sprite;
+	wchar_t _hp;
 	wchar_t _deltaPerMove;
 	wchar_t _deltaPerFire;
-	wchar_t _moveDelta;
-	wchar_t _fireDelta;
+	int _moveDelta;
+	int _fireDelta;
 };
