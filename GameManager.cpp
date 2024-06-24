@@ -1,6 +1,7 @@
 #include "GameManager.h"
 #include <stdio.h>
 
+#pragma warning(disable:4715)
 #pragma warning(disable:26495)
 
 GameManager GameManager::_gameManager;
@@ -17,7 +18,7 @@ void GameManager::Initialize(void) noexcept
     InitEnemyInfo();
 }
 
-Player& GameManager::GetPlayer(wchar_t sprite, char x, char y)
+Player& GameManager::GetPlayer(wchar_t sprite, char x, char y) noexcept
 {
     for (int index = 0; index < _playerInfo._count; ++index)
     {
@@ -33,7 +34,7 @@ Player& GameManager::GetPlayer(wchar_t sprite, char x, char y)
     __debugbreak();
 }
 
-Enemy& GameManager::GetEnemy(wchar_t sprite, char x, char y)
+Enemy& GameManager::GetEnemy(wchar_t sprite, char x, char y) noexcept
 {
     for (int index = 0; index < _enemyInfo._count; ++index)
     {

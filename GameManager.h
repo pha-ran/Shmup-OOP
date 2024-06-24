@@ -20,8 +20,8 @@ public:
 
 public:
 	void Initialize(void) noexcept;
-	Player& GetPlayer(wchar_t sprite, char x, char y);
-	Enemy& GetEnemy(wchar_t sprite, char x, char y);
+	Player& GetPlayer(wchar_t sprite, char x, char y) noexcept;
+	Enemy& GetEnemy(wchar_t sprite, char x, char y) noexcept;
 
 private:
 	static constexpr const wchar_t* STAGE_CONFIG_FILE = L"Config\\stage.txt";
